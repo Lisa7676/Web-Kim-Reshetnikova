@@ -59,6 +59,9 @@
 					"",
 					"pm.test(\"Response time is less than 400ms\", () => {",
 					"  pm.expect(pm.response.responseTime).to.be.below(400);",
+					"});",
+					"pm.test(\"Body have vk_utils\", function () {",
+					"    pm.expect(pm.response.text()).to.include(`\"vk_utils\"`);",
 					"});"
 				]
 			}

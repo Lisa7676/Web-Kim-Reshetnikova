@@ -1,0 +1,15 @@
+
+<div th:fragment="card" style="width: 18rem;">
+    <img src="https://moizver.com/upload/resize_cache/iblock/0d9/400_400_140cd750bba9870f18aada2478b24840a/0d9db94daeae09cb4e5f3698b19ff5fc.jpeg" class="card-img-top mx-auto d-block" alt="Product Image">
+    <div class="card-body text-center">
+        <h5 th:text="${productName}"></h5>
+        <p th:inline="javascript">[[${productPrice[__${productNameStat.index}__]}]] руб./шт</p>
+        <div class="input-group mb-3">
+                <button class="btn" type="button text-center" data-action="minus">-</button>
+            <input type="number" class="form-control text-center" value="1" min="1" aria-label="Quantity" aria-describedby="basic-addon1">
+                <button class="btn" type="button text-center" data-action="plus">+</button>
+        </div>
+        <button class="btn btn-primary btn-block">В Корзину</button>
+    </div>
+</div>
+

@@ -1,0 +1,22 @@
+[
+    {
+        "name": "T-Shirt",
+        "category": "Clothes",
+        "price": 500
+    },
+    {
+        "name": "EarPods",
+        "category": "Electronics",
+        "price": 1500
+    },
+    {
+        "name": "Book",
+        "category": "Literature",
+        "price": 800
+    },
+    {
+        "name": "T-Shirtsdfds",
+        "category": "Clothes",
+        "price": 66666
+    }
+]

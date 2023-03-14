@@ -38,26 +38,26 @@ public class ProductController {
     
 
     @PostMapping("/products/filter")
-public List<Product> filterProducts(@RequestBody FilterRequest filterRequest) {
-    List<Product> filteredProducts = new ArrayList<>();
+    public List<Product> filterProducts(@RequestBody FilterRequest filterRequest) {
+        List<Product> filteredProducts = new ArrayList<>();
     // load products from JSON file or database
-    List<Product> products = getProducts();
+        List<Product> products = getProducts();
 
-    for (Product product : products) {
+        for (Product product : products) {
         // apply category filter
-        if (filterRequest.getCategory() != null && !product.getCategory().equals(filterRequest.getCategory())) {
+            if ((filterRequest.getCategory() != null && filterRequest.getCategory()!= "") && !product.getCategory().equals(filterRequest.getCategory())) {
             continue;
-        }
+            }
         // apply min price filter
-        if (filterRequest.getMinPrice() != null && product.getPrice() < filterRequest.getMinPrice()) {
+            if ((filterRequest.getMinPrice() != null && filterRequest.getCategory()!= "") && product.getPrice() < filterRequest.getMinPrice()) {
             continue;
-        }
+            }
         // apply max price filter
-        if (filterRequest.getMaxPrice() != null && product.getPrice() > filterRequest.getMaxPrice()) {
+            if ((filterRequest.getMaxPrice() != null && filterRequest.getCategory()!= "") && product.getPrice() > filterRequest.getMaxPrice()) {
             continue;
+            }
+            filteredProducts.add(product);
         }
-        filteredProducts.add(product);
-    }
 
     return filteredProducts;
 }

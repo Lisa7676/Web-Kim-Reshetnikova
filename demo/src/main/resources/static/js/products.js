@@ -1,6 +1,6 @@
 $(document).ready(function() {
-    $('#generate-list').click(function(){
-        $.ajax({
+    
+    $.ajax({
             url: "/products",
             type: "GET",
             dataType: "json",
@@ -11,9 +11,10 @@ $(document).ready(function() {
                     var productHtml = "<div class='product col-lg-4 col-md-6 col-sm-12 mb-4'>" +
                         "<div class='card h-100'>" +
                         "<div class='card-body'>" +
+                        "<img src='"+productsList.img+"'>"+
                         "<h4 class='card-title'>" + productsList.name + "</h4>" +
                         "<p class='card-text'>" + productsList.category + "</p>" +
-                        "<p class='card-text'>" + productsList.price + "</p>" +
+                        "<h3 class='card-text'>" + productsList.price + " руб/шт</h3>" +
                         "</div>" +
                         "</div>" +
                         "</div>";
@@ -22,13 +23,12 @@ $(document).ready(function() {
                 });;
             }
         })
-    })
 
     // Apply filter when filter button is clicked
     $('#filter-button').click(function() {
         var category = $('#filter-category').val();
-        var minPrice = $('#minPriceInput').val();
-        var maxPrice = $('#maxPriceInput').val();
+        var minPrice = $('#filter-min-price').val();
+        var maxPrice = $('#filter-max-price').val();
 
         // Send AJAX request to filter products
         $.ajax({
@@ -46,9 +46,10 @@ $(document).ready(function() {
                     var productHtml = "<div class='product col-lg-4 col-md-6 col-sm-12 mb-4'>" +
                         "<div class='card h-100'>" +
                         "<div class='card-body'>" +
+                        "<img src='"+product.img+"'>"+
                         "<h4 class='card-title'>" + product.name + "</h4>" +
                         "<p class='card-text'>" + product.category + "</p>" +
-                        "<p class='card-text'>" + product.price + "</p>" +
+                        "<h3 class='card-text'>" + product.price + " руб/шт</h3>" +
                         "</div>" +
                         "</div>" +
                         "</div>";

@@ -11,6 +11,6 @@ public class GreetingController {
     @GetMapping("/")
 	public String home( Model model) {
 		model.addAttribute("title", "Гланая страница");
-		return "home";
+		return "catalog-main";
 	}
 }

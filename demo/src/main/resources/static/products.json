@@ -2,21 +2,30 @@
     {
         "name": "T-Shirt",
         "category": "Clothes",
-        "price": 500
+        "price": 500,
+        "img": "https://moizver.com/upload/iblock/e2b/e2bba4544ceb52d429ff4e10cc3d6eeb.jpg"
+
+        
     },
     {
         "name": "EarPods",
-        "category": "Electronics",
-        "price": 1500
+        "category": "Кошки",
+        "price": 1500,
+        "img": "https://moizver.com/upload/iblock/e2b/e2bba4544ceb52d429ff4e10cc3d6eeb.jpg"
+
     },
     {
         "name": "Book",
         "category": "Literature",
-        "price": 800
+        "price": 800,
+        "img": "https://moizver.com/upload/iblock/e2b/e2bba4544ceb52d429ff4e10cc3d6eeb.jpg"
+
     },
     {
         "name": "T-Shirtsdfds",
         "category": "Clothes",
-        "price": 66666
+        "price": 66666,
+        "img": "https://moizver.com/upload/iblock/e2b/e2bba4544ceb52d429ff4e10cc3d6eeb.jpg"
+
     }
 ]

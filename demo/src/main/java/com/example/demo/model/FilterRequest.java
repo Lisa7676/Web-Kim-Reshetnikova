@@ -1,9 +1,18 @@
 package com.example.demo.model;
 
 public class FilterRequest {
+    private String name;
     private String category;
     private Double minPrice;
     private Double maxPrice;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getCategory() {
         return category;

@@ -44,16 +44,19 @@ public class ProductController {
         List<Product> products = getProducts();
 
         for (Product product : products) {
+            if ((filterRequest.getName() != null && filterRequest.getName()!= "") && !product.getName().contains(filterRequest.getName())) {
+                continue;
+                }
         // apply category filter
-            if ((filterRequest.getCategory() != null && filterRequest.getCategory()!= "") && !product.getCategory().equals(filterRequest.getCategory())) {
+            if ((filterRequest.getCategory() != null && filterRequest.getCategory()!= "") && !product.getCategory().contains(filterRequest.getCategory())) {
             continue;
             }
         // apply min price filter
-            if ((filterRequest.getMinPrice() != null && filterRequest.getCategory()!= "") && product.getPrice() < filterRequest.getMinPrice()) {
+            if ((filterRequest.getMinPrice() != null) && product.getPrice() < filterRequest.getMinPrice()) {
             continue;
             }
         // apply max price filter
-            if ((filterRequest.getMaxPrice() != null && filterRequest.getCategory()!= "") && product.getPrice() > filterRequest.getMaxPrice()) {
+            if ((filterRequest.getMaxPrice() != null) && product.getPrice() > filterRequest.getMaxPrice()) {
             continue;
             }
             filteredProducts.add(product);

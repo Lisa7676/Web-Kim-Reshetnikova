@@ -43,22 +43,22 @@ public class ProductController {
     @PostMapping("/products/filter")
     public List<Product> filterProducts(@RequestBody FilterRequest filterRequest) {
         List<Product> filteredProducts = new ArrayList<>();
-    // load products from JSON file or database
+
         List<Product> products = getProducts();
 
         for (Product product : products) {
-            if ((filterRequest.getName() != null && filterRequest.getName()!= "") && !product.getName().toLowerCase().contains(filterRequest.getName().toLowerCase())) {
+            if ((filterRequest.getName() != null && filterRequest.getName()!= "") && !product.getName().contains(filterRequest.getName())) {
                 continue;
                 }
-        // apply category filter
+
             if ((filterRequest.getCategory() != null && filterRequest.getCategory()!= "") && !product.getCategory().contains(filterRequest.getCategory())) {
             continue;
             }
-        // apply min price filter
+
             if ((filterRequest.getMinPrice() != null) && product.getPrice() < filterRequest.getMinPrice()) {
             continue;
             }
-        // apply max price filter
+
             if ((filterRequest.getMaxPrice() != null) && product.getPrice() > filterRequest.getMaxPrice()) {
             continue;
             }

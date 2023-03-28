@@ -15,7 +15,7 @@ public class Product {
         this.price = price;
     }
 
-    // геттеры и сеттеры для полей name, category, price
+    
 
     public String getName() {
         return name;

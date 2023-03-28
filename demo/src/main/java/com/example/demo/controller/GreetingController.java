@@ -11,6 +11,16 @@ public class GreetingController {
     @GetMapping("/")
 	public String home( Model model) {
 		model.addAttribute("title", "Гланая страница");
+		return "home";
+	}
+	@GetMapping("/catalog")
+	public String catalog( Model model) {
+		model.addAttribute("title", "Гланая страница");
 		return "catalog-main";
+	}
+	@GetMapping("/about")
+	public String about( Model model) {
+		model.addAttribute("title", "Гланая страница");
+		return "about";
 	}
 }

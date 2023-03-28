@@ -24,13 +24,13 @@ $(document).ready(function() {
             }
         })
 
-    // Apply filter when filter button is clicked
+   
     $('#filter-button').click(function() {
         var name = $('#filter-name').val();
         var category = $('#filter-category').val();
         var minPrice = $('#filter-min-price').val();
         var maxPrice = $('#filter-max-price').val();
-        // Send AJAX request to filter products
+        
         $.ajax({
             url: "/products/filter",
             type: "POST",
@@ -38,10 +38,10 @@ $(document).ready(function() {
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function(filteredProducts) {
-                // Clear existing products from products container
+                
                 $('#productsContainer').empty();
 
-                // Loop through each filtered product and add it to the products container
+                
                 $.each(filteredProducts, function(key, product) {
                     var productHtml = "<div class='product col-lg-4 col-md-6 col-sm-12 mb-4'>" +
                         "<div class='card h-100'>" +

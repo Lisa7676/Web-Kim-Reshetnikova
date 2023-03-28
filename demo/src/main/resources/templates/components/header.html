@@ -1,3 +1,4 @@
+
 <div th:fragment="header">
     <nav class="py-2 bg-light border-bottom">
         <div class="container d-flex flex-wrap">
@@ -6,7 +7,9 @@
             <li class="nav-item"><a href="/catalog" class="nav-link link-dark px-2">Продукты</a></li>
             <li class="nav-item"><a href="/about" class="nav-link link-dark px-2">О Нас</a></li>
           </ul>
+          <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modal-window" id="city-button">Выберите ваш город</button>
           <ul class="nav">
+            
             <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Авторизация</a></li>
             <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Регистрация</a></li>
           </ul>
@@ -24,4 +27,30 @@
           </form>
         </div>
       </header>
+      <div class="modal fade" id="modal-window" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="myModalLabel">Выберите ваш город</h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <select id="city-select" class="form-control">
+                <option value="Москва">Москва</option>
+                <option value="Санкт-Петербург">Санкт-Петербург</option>
+                <option value="Новосибирск">Новосибирск</option>
+                <option value="Красноярск">Красноярск</option>
+                <option value="Екатеринбург">Екатеринбург</option>
+                <option value="Пермь">Пермь</option>
+              </select>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="save-button">Сохранить</button>
+            </div>
+          </div>
+        </div>
+      </div>
 </div>

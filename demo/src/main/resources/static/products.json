@@ -1,10 +1,25 @@
-
 [
     {
         "name": "Лежанка Пухлик для кошек и собак средних и крупных пород",
         "category": "Лежанка для собак, Лежанка для кошек, Собаки, Кошки",
         "price": 2500,
         "img": "https://4lapy.ru/resize/480x480/upload/iblock/7fa/7fa522b4a12f49593f4f4fa4021981d9.jpg"
+    },
+    {
+        "name": "Лежак круглый 40см серый",
+        "category": "Лежанка для собак, Лежанки для кошек, Собаки, Кошки",
+        "price": 1100,
+        "img": "https://4lapy.ru/resize/480x480/upload/iblock/216/21627cd2a5a6a055cdb087a9b3f8333c.jpg"
+   },
+    {
+    "name": "Лежак бежевый 40х30х12 см",
+    "category": "Лежанки для собак, Лежанки для кошек, Собаки, кошки",
+    "price": 990,
+     "img": "https://4lapy.ru/upload/iblock/95e/95ecfcc6fe9a7ce597c68408d3871df6.jpg"
+        "name": "Лежанка Пухлик для кошек и собак средних и крупных пород",
+        "category": "Лежанка для собак, Лежанка для кошек, Собаки, Кошки",
+        "price": 2500,
+        "img": "https://th.bing.com/th/id/OIP.PVFxxoF_mH2mEyfepsvoSAHaHa?pid=ImgDet"
     },
     {
         "name": "Лежак круглый 40см серый",
@@ -105,6 +120,24 @@
     "category": "Амуниция для собак, Собаки, ",
     "price": 920,
     "img": "https://4lapy.ru/upload/iblock/237/2370ee8695f50c2f0bc636e94ad64da6.jpg"
+}
+,{
+    "name": "Ferplast Ферпласт Шлейка NIKITA P M черная",
+    "category": "Амуниция для собак, Собаки, ",
+    "price": 1450,
+    "img": "https://4lapy.ru/upload/iblock/e0a/e0a12cb1695e2a0558d8f0312061363b.jpg"
+}
+,{
+    "name": "Rurri Шлейка клетка размер M",
+    "category": "Амуниция для собак, Собаки, ",
+    "price": 350,
+    "img": "https://4lapy.ru/upload/iblock/7d6/7d6213b5c9a1a9768d1330f62b622f52.jpg"
+}
+,{
+    "name": "Ferplast Шлейка DAYTONA Small 10м для собак черная",
+    "category": "Амуниция для собак, Собаки, ",
+    "price": 920,
+    "img": "https://avatars.mds.yandex.net/get-mpic/5254754/img_id2223379362790262275.jpeg/orig"
 }
 ,{
     "name": "Ferplast Ферпласт Шлейка NIKITA P M черная",

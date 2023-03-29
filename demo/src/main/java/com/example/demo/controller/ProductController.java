@@ -13,9 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.FilterRequest;
+import com.example.demo.model.SorterRequest;
+
 import com.example.demo.model.Product;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.Comparator;
+import java.util.stream.*;
 
 @RestController
 public class ProductController {
@@ -31,7 +35,6 @@ public class ProductController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    
         return products;
     }
     
@@ -44,7 +47,7 @@ public class ProductController {
         List<Product> products = getProducts();
 
         for (Product product : products) {
-            if ((filterRequest.getName() != null && filterRequest.getName()!= "") && !product.getName().contains(filterRequest.getName())) {
+            if ((filterRequest.getName() != null && filterRequest.getName()!= "") && !product.getName().toLowerCase().contains(filterRequest.getName().toLowerCase())) {
                 continue;
                 }
         // apply category filter
@@ -65,4 +68,31 @@ public class ProductController {
     return filteredProducts;
 }
 
+
+    @PostMapping("/products/sort")
+    public List<Product> sortProducts(@RequestBody SorterRequest sortRequest) {
+        List<Product> sortedProducts = new ArrayList<>();
+        sortedProducts = getProducts();
+
+        switch (sortRequest.getSortBy()) {
+            case "reset":
+                //do nothing
+                break;
+            case "name":
+                sortedProducts.sort(Comparator.comparing(Product::getName));
+                break;
+            case "price":
+                sortedProducts.sort(Comparator.comparing(Product::getPrice));
+                break;
+            case "price-desc":
+                sortedProducts.sort(Comparator.comparing(Product::getPrice).reversed());
+                break;
+
+            default:
+                throw new IllegalArgumentException("Invalid sort parameter: " + sortRequest.getSortBy());
+        }
+
+        return sortedProducts;
+
+    }
 }

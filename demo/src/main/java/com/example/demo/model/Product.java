@@ -1,6 +1,6 @@
 package com.example.demo.model;
 
-public class Product /*implements Comparable<Product>*/{
+public class Product {
 
     private String name;
     private String category;
@@ -48,8 +48,4 @@ public class Product /*implements Comparable<Product>*/{
         this.img = img;
     }
 
-//    public int compare(Product p){
-//
-//        return p.getPrice().compareTo(p.getPrice());
-//    }
 }

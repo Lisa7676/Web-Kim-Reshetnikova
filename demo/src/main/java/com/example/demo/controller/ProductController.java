@@ -68,6 +68,41 @@ public class ProductController {
     return filteredProducts;
 }
 
+//   @PostMapping("/products/sort")
+//    public List<Product> sortProducts(@RequestBody SorterRequest sorterRequest) {
+//        List<Product> sortedProducts = new ArrayList<>();
+//        // load products from JSON file or database
+//        List<Product> products = getProducts();
+////        ?как бы передавать отсортирванную продукцию в ФИЛЬТР И НАБОРОТ
+//
+//        if (sorterRequest.getType()=="price" && sorterRequest.getAsc()){
+//            //сортировка по цене по  возрастанию
+//            sortedProducts = products.stream()
+//                    .sorted(Comparator.comparingDouble(Product::getPrice))
+//                    .collect(Collectors.toList());
+//        }
+//        else if(sorterRequest.getType()=="price" && sorterRequest.getAsc()==false){
+//            // сортировка по убыванию цены
+//            sortedProducts = products.stream()
+//                    .sorted(Comparator.comparingDouble(Product::getPrice).reversed())
+//                    .collect(Collectors.toList());
+//        }
+//        else if(sorterRequest.getType()=="abc" && sorterRequest.getAsc()){
+//            // сортировка по алфавиту
+//            sortedProducts = products.stream()
+//                    .sorted(Comparator.comparing(Product::getName))
+//                    .collect(Collectors.toList());
+//        }
+//        else if (sorterRequest.getType()=="reset"){
+//            sortedProducts= getProducts();
+//        }
+//        else{
+//            //some error happend
+//            sortedProducts= products;
+//
+//        }
+//        return sortedProducts;
+//    }
 
     @PostMapping("/products/sort")
     public List<Product> sortProducts(@RequestBody SorterRequest sortRequest) {

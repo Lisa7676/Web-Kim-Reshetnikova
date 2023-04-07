@@ -2,6 +2,9 @@ package com.example.demo.model;
 
 public class Product {
 
+    private int id;
+    
+
     private String name;
     private String category;
     private double price;
@@ -9,13 +12,22 @@ public class Product {
 
     public Product() {}
 
-    public Product(String name, String category, double price) {
+    public Product(int id, String name, String category, double price, String img) {
         this.name = name;
         this.category = category;
         this.price = price;
+        this.img = img;
+    }
+    public int getId() {
+        return id;
     }
 
-    
+    public void setId(int id) {
+        this.id = id;
+    }
+    public Long getIdAsLong(){
+        return (long)id;
+    }
 
     public String getName() {
         return name;

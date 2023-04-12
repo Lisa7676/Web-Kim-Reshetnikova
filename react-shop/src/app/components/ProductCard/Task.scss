@@ -1,0 +1,110 @@
+
+
+.upsilon-app {
+  flex-wrap: wrap;
+}
+
+.upsilon-app__container {
+  height: 150vh;
+}
+
+.section-auth {
+  width: 100%;
+}
+
+.app-name {
+  text-align: center;
+  margin-top: 29px;
+  font-weight: bold;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 24px;
+  color: #000;
+}
+
+
+.button-login {
+  font-family: 'Ubuntu', sans-serif !important;
+  font-weight: bold !important;
+  background-color: #d7d6d8 !important;
+  color: rgb(0, 0, 0) !important;
+  font-size: 16px !important;
+  position: right !important;
+  text-align: center;
+  width: 100px !important;
+  height: 35px !important;
+  border-radius: 10px !important;
+  left: 390px;
+}
+
+.field-button{
+  display: flex;
+  justify-content: space-around;
+}
+
+
+/* Box */
+
+.box-Task {
+  background-color: white !important;
+  width: 580px !important;
+  height: 360px !important;
+  margin: 0 auto !important;
+  margin-top: 66px !important;
+  margin-bottom: 10px !important;
+  padding: 50px 47px !important;
+  border-radius: 20px !important;
+}
+
+.img
+{
+  position: relative;
+  border-radius: 10px;
+  left: 350px;
+}
+
+
+.field-login {
+  margin-bottom: 35px !important;
+  height: 50px !important;
+  border-radius: 20px !important;
+}
+.output
+{
+  height: 50px !important;
+  font-size: 16px !important;
+  border-radius: 5px !important;
+
+}
+
+.con
+{
+  height: 50px ;
+  font-size: 20px ;
+  margin-top: 20px;
+}
+
+
+.con1
+{
+  font-weight: bold;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 24px;
+  color: #000;
+}
+
+.con2
+{
+  font-weight: bold;
+  background-color:  #d8d8da ;
+  border-radius: 5px ;
+  font-family: 'Ubuntu', sans-serif;
+  color: #918c8c;
+}
+
+.con3
+{
+  font-weight: bold;
+  font-family: 'Ubuntu', sans-serif;
+  color: #918c8c;
+  margin-top: 15px;
+}

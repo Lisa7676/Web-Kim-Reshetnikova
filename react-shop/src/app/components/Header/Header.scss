@@ -1,0 +1,44 @@
+.header {
+  height: 47px;
+  display: flex;
+  justify-content: normal;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid lightgray;
+}
+
+.header-bars {
+  padding-left: 20px;
+  margin-bottom: 0px !important;
+  width: 8%;
+  cursor: pointer;
+}
+
+.header-logo {
+  font-size: 24px;
+  margin-bottom: 0px !important;
+  width: 77%;
+  text-align: center;
+}
+
+.header-accountInfo {
+  display: flex;
+  height: inherit;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.accountInfo-icon {
+  margin-right: 7px;
+  text-decoration: none;
+  color: black;
+}
+
+.accountInfo-name {
+  font-size: 16px;
+  margin-right: 20px;
+}
+
+.accountInfo-exit {
+  color: #3C51E0;
+}

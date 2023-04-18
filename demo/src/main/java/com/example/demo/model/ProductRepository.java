@@ -21,7 +21,7 @@ public class ProductRepository {
     @PostConstruct
     public void init() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        File file = new ClassPathResource("products.json").getFile();
+        File file = new ClassPathResource("static/products.json").getFile();
         products = mapper.readValue(file, new TypeReference<List<Product>>() {
         });
     }

@@ -22,7 +22,8 @@ public class ProductRepository {
     public void init() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         File file = new ClassPathResource("products.json").getFile();
-        products = mapper.readValue(file, new TypeReference<List<Product>>() {});
+        products = mapper.readValue(file, new TypeReference<List<Product>>() {
+        });
     }
 
     public List<Product> getAllProducts() {

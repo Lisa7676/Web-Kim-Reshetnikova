@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,11 +20,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RestController
 public class ProductController {
-    
+
     @GetMapping("/products")
     public List<Product> getProducts() {
         List<Product> products = new ArrayList<>();
-    
+
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             File file = new ClassPathResource("static/products.json").getFile();
@@ -31,11 +32,10 @@ public class ProductController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    
+
         return products;
     }
-    
-    
+
 
     @PostMapping("/products/filter")
     public List<Product> filterProducts(@RequestBody FilterRequest filterRequest) {
@@ -44,25 +44,25 @@ public class ProductController {
         List<Product> products = getProducts();
 
         for (Product product : products) {
-            if ((filterRequest.getName() != null && filterRequest.getName()!= "") && !product.getName().contains(filterRequest.getName())) {
+            if ((filterRequest.getName() != null && filterRequest.getName() != "") && !product.getName().contains(filterRequest.getName())) {
                 continue;
-                }
+            }
 
-            if ((filterRequest.getCategory() != null && filterRequest.getCategory()!= "") && !product.getCategory().contains(filterRequest.getCategory())) {
-            continue;
+            if ((filterRequest.getCategory() != null && filterRequest.getCategory() != "") && !product.getCategory().contains(filterRequest.getCategory())) {
+                continue;
             }
 
             if ((filterRequest.getMinPrice() != null) && product.getPrice() < filterRequest.getMinPrice()) {
-            continue;
+                continue;
             }
 
             if ((filterRequest.getMaxPrice() != null) && product.getPrice() > filterRequest.getMaxPrice()) {
-            continue;
+                continue;
             }
             filteredProducts.add(product);
         }
 
-    return filteredProducts;
-}
+        return filteredProducts;
+    }
 
 }

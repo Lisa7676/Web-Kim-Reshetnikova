@@ -1,31 +1,32 @@
-$(document).ready(function() {
-    
+$(document).ready(function () {
+
     $.ajax({
-            url: "/products",
-            type: "GET",
-            dataType: "json",
-            success: function(getProductList){
-                var productsList = getProductList;
-                $('#productsContainer').empty();
-                $.each(getProductList, function(key, productsList) {
-                    var productHtml = "<div class='product col-lg-4 col-md-6 col-sm-12 mb-4'>" +
-                        "<div class='card h-100'>" +
-                        "<div class='card-body'>" +
-                        "<img src='"+productsList.img+"' width='200px' height='300px' class='card-img-top mx-auto d-block' alt='Product Image'>"+
-                        "<h4 class='card-title'>" + productsList.name + "</h4>" +
-                        "<p class='card-text'>" + productsList.category + "</p>" +
-                        "<h3 class='card-text'>" + productsList.price + " руб/шт</h3>" +
-                        "</div>" +
-                        "</div>" +
-                        "</div>";
-                    $('#productsContainer').append(productHtml);
-                    console.log(productHtml);
-                });;
-            }
-        })
+        url: "/products",
+        type: "GET",
+        dataType: "json",
+        success: function (getProductList) {
+            var productsList = getProductList;
+            $('#productsContainer').empty();
+            $.each(getProductList, function (key, productsList) {
+                var productHtml = "<div class='product col-lg-4 col-md-6 col-sm-12 mb-4'>" +
+                    "<div class='card h-100'>" +
+                    "<div class='card-body'>" +
+                    "<img src='" + productsList.img + "' width='200px' height='300px' class='card-img-top mx-auto d-block' alt='Product Image'>" +
+                    "<h4 class='card-title'>" + productsList.name + "</h4>" +
+                    "<p class='card-text'>" + productsList.category + "</p>" +
+                    "<h3 class='card-text'>" + productsList.price + " руб/шт</h3>" +
+                    "</div>" +
+                    "</div>" +
+                    "</div>";
+                $('#productsContainer').append(productHtml);
+                console.log(productHtml);
+            });
+            ;
+        }
+    })
 
 
-    $('#filter-button').click(function() {
+    $('#filter-button').click(function () {
         var name = $('#filter-name').val();
         var category = $('#filter-category').val();
         var minPrice = $('#filter-min-price').val();
@@ -34,19 +35,19 @@ $(document).ready(function() {
         $.ajax({
             url: "/products/filter",
             type: "POST",
-            data: JSON.stringify({ name: name, category: category, minPrice: minPrice, maxPrice: maxPrice }),
+            data: JSON.stringify({name: name, category: category, minPrice: minPrice, maxPrice: maxPrice}),
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-            success: function(filteredProducts) {
+            success: function (filteredProducts) {
 
                 $('#productsContainer').empty();
 
 
-                $.each(filteredProducts, function(key, product) {
+                $.each(filteredProducts, function (key, product) {
                     var productHtml = "<div class='product col-lg-4 col-md-6 col-sm-12 mb-4'>" +
                         "<div class='card h-100'>" +
                         "<div class='card-body'>" +
-                        "<img src='"+product.img+"' width='200px' height='300px' class='card-img-top mx-auto d-block' alt='Product Image'>"+
+                        "<img src='" + product.img + "' width='200px' height='300px' class='card-img-top mx-auto d-block' alt='Product Image'>" +
                         "<h4 class='card-title'>" + product.name + "</h4>" +
                         "<p class='card-text'>" + product.category + "</p>" +
                         "<h3 class='card-text'>" + product.price + " руб/шт</h3>" +
@@ -56,30 +57,30 @@ $(document).ready(function() {
                     $('#productsContainer').append(productHtml);
                 });
             },
-            error: function() {
+            error: function () {
                 console.log('Error filtering products');
             }
         });
     });
-    $('#sort-price').click(function() {
+    $('#sort-price').click(function () {
         let sortBy = "price";
 
         // передача парметров на сорторовку получение списка на вывод
         $.ajax({
             url: "/products/sort",
             type: "POST",
-            data: JSON.stringify({ sortBy: sortBy}),
+            data: JSON.stringify({sortBy: sortBy}),
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-            success: function(sortedProducts) {
+            success: function (sortedProducts) {
 
                 $('#productsContainer').empty();
 
-                $.each(sortedProducts, function(key, product) {
+                $.each(sortedProducts, function (key, product) {
                     var productHtml = "<div class='product col-lg-4 col-md-6 col-sm-12 mb-4'>" +
                         "<div class='card h-100'>" +
                         "<div class='card-body'>" +
-                        "<img src='"+product.img+"' width='200px' height='300px' class='card-img-top mx-auto d-block' alt='Product Image'>"+
+                        "<img src='" + product.img + "' width='200px' height='300px' class='card-img-top mx-auto d-block' alt='Product Image'>" +
                         "<h4 class='card-title'>" + product.name + "</h4>" +
                         "<p class='card-text'>" + product.category + "</p>" +
                         "<h3 class='card-text'>" + product.price + " руб/шт</h3>" +
@@ -89,31 +90,31 @@ $(document).ready(function() {
                     $('#productsContainer').append(productHtml);
                 });
             },
-            error: function() {
+            error: function () {
                 console.log('Error sorting products');
             }
         });
     });
 
-    $('#sort-abc').click(function() {
+    $('#sort-abc').click(function () {
         sortBy = "name";
 
         // передача парметров на сорторовку получение списка на вывод
         $.ajax({
             url: "/products/sort",
             type: "POST",
-            data: JSON.stringify({ sortBy: sortBy}),
+            data: JSON.stringify({sortBy: sortBy}),
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-            success: function(sortedProducts) {
+            success: function (sortedProducts) {
 
                 $('#productsContainer').empty();
 
-                $.each(sortedProducts, function(key, product) {
+                $.each(sortedProducts, function (key, product) {
                     var productHtml = "<div class='product col-lg-4 col-md-6 col-sm-12 mb-4'>" +
                         "<div class='card h-100'>" +
                         "<div class='card-body'>" +
-                        "<img src='"+product.img+"' width='200px' height='300px' class='card-img-top mx-auto d-block' alt='Product Image'>"+
+                        "<img src='" + product.img + "' width='200px' height='300px' class='card-img-top mx-auto d-block' alt='Product Image'>" +
                         "<h4 class='card-title'>" + product.name + "</h4>" +
                         "<p class='card-text'>" + product.category + "</p>" +
                         "<h3 class='card-text'>" + product.price + " руб/шт</h3>" +
@@ -123,30 +124,30 @@ $(document).ready(function() {
                     $('#productsContainer').append(productHtml);
                 });
             },
-            error: function() {
+            error: function () {
                 console.log('Error sorting products');
             }
         });
     });
-    $('#sort-price-desc').click(function() {
+    $('#sort-price-desc').click(function () {
         sortBy = "price-desc";
 
         // передача парметров на сорторовку получение списка на вывод
         $.ajax({
             url: "/products/sort",
             type: "POST",
-            data: JSON.stringify({ sortBy: sortBy}),
+            data: JSON.stringify({sortBy: sortBy}),
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-            success: function(sortedProducts) {
+            success: function (sortedProducts) {
 
                 $('#productsContainer').empty();
 
-                $.each(sortedProducts, function(key, product) {
+                $.each(sortedProducts, function (key, product) {
                     var productHtml = "<div class='product col-lg-4 col-md-6 col-sm-12 mb-4'>" +
                         "<div class='card h-100'>" +
                         "<div class='card-body'>" +
-                        "<img src='"+product.img+"' width='200px' height='300px' class='card-img-top mx-auto d-block' alt='Product Image'>"+
+                        "<img src='" + product.img + "' width='200px' height='300px' class='card-img-top mx-auto d-block' alt='Product Image'>" +
                         "<h4 class='card-title'>" + product.name + "</h4>" +
                         "<p class='card-text'>" + product.category + "</p>" +
                         "<h3 class='card-text'>" + product.price + " руб/шт</h3>" +
@@ -156,30 +157,30 @@ $(document).ready(function() {
                     $('#productsContainer').append(productHtml);
                 });
             },
-            error: function() {
+            error: function () {
                 console.log('Error sorting products');
             }
         });
     });
-    $('#sort-reset').click(function() {
+    $('#sort-reset').click(function () {
         sortBy = "reset";
 
         // передача парметров на сорторовку получение списка на вывод
         $.ajax({
             url: "/products/sort",
             type: "POST",
-            data: JSON.stringify({ sortBy: sortBy}),
+            data: JSON.stringify({sortBy: sortBy}),
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-            success: function(sortedProducts) {
+            success: function (sortedProducts) {
 
                 $('#productsContainer').empty();
 
-                $.each(sortedProducts, function(key, product) {
+                $.each(sortedProducts, function (key, product) {
                     var productHtml = "<div class='product col-lg-4 col-md-6 col-sm-12 mb-4'>" +
                         "<div class='card h-100'>" +
                         "<div class='card-body'>" +
-                        "<img src='"+product.img+"' width='200px' height='300px' class='card-img-top mx-auto d-block' alt='Product Image'>"+
+                        "<img src='" + product.img + "' width='200px' height='300px' class='card-img-top mx-auto d-block' alt='Product Image'>" +
                         "<h4 class='card-title'>" + product.name + "</h4>" +
                         "<p class='card-text'>" + product.category + "</p>" +
                         "<h3 class='card-text'>" + product.price + " руб/шт</h3>" +
@@ -189,7 +190,7 @@ $(document).ready(function() {
                     $('#productsContainer').append(productHtml);
                 });
             },
-            error: function() {
+            error: function () {
                 console.log('Error sorting products');
             }
         });

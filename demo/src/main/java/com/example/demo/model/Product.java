@@ -7,7 +7,8 @@ public class Product {
     private double price;
     private String img;
 
-    public Product() {}
+    public Product() {
+    }
 
     public Product(String name, String category, double price) {
         this.name = name;
@@ -15,7 +16,6 @@ public class Product {
         this.price = price;
     }
 
-    
 
     public String getName() {
         return name;
@@ -40,6 +40,7 @@ public class Product {
     public void setPrice(double price) {
         this.price = price;
     }
+
     public String getImg() {
         return img;
     }
